@@ -23,6 +23,12 @@
   },
   "homepage": "https://github.com/betocostadev/learning-sass#readme",
   "devDependencies": {
-    "gulp": "^4.0.0"
+    "browser-sync": "^2.26.3",
+    "eslint": "^5.15.3",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "gulp": "^4.0.0",
+    "gulp-sass": "^4.0.2",
+    "node-sass": "^4.11.0"
   }
 }
