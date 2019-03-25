@@ -1,2 +1,87 @@
+/* PARTIALS */
+/* VARIABLES */
+html {
+  box-sizing: border-box;
+  /* font-size: 62.5%; */
+  font-family: 'Montserrat', sans-serif;
+  /* font-weight: 400; */
+  color: #f5f5f5; }
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit; }
+
+/* MEDIA CATCH ALL */
+img, embed, object, video {
+  max-width: 100%; }
+
+body {
+  background-color: #3f51b5;
+  margin: 0;
+  padding: 0; }
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 1rem; }
+
+main {
+  margin: 1rem 10%; }
+  main section article p:nth-of-type(2) {
+    font-weight: 500; }
+  main section article p:nth-of-type(3) {
+    font-weight: 700; }
+
+h1 {
+  color: #dce775; }
+
+h2 {
+  color: #c0ca33;
+  border-bottom: 2px solid #c0ca33;
+  padding-bottom: 0.5rem; }
+
 header {
-  background-color: aquamarine; }
+  margin: 2rem; }
+
+.nesting {
+  margin: 1rem;
+  padding: 1rem;
+  background-color: #7986cb; }
+  .nesting h3 {
+    font-size: 1.5rem;
+    margin: 1rem; }
+  .nesting .media {
+    margin-left: 1rem;
+    list-style-type: none; }
+    .nesting .media img {
+      float: left;
+      margin: 1rem;
+      border: 2px solid #f5f5f5; }
+    .nesting .media .item {
+      margin: 0 2rem 3rem 0;
+      border-top: 1px dotted #f5f5f5; }
+      .nesting .media .item a {
+        text-decoration: none;
+        color: #f5f5f5; }
+
+/* MIXINS */
+.placeOne {
+  background: url("../img/vancouver.webp");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  height: 75vh;
+  padding: 1rem; }
+  .placeOne h3 {
+    font-size: 2rem;
+    font-weight: 500; }
+
+.placeTwo {
+  background: url("../img/toronto.webp");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  height: 400px;
+  padding: 1rem; }
+  .placeTwo h3 {
+    font-size: 2rem;
+    font-weight: 500; }

@@ -1,0 +1,28 @@
+html {
+  box-sizing: border-box;
+  /* font-size: 62.5%; */
+  font-family: 'Montserrat', sans-serif;
+  /* font-weight: 400; */
+  color: $primaryFontC;
+}
+
+*,
+*:before,
+*:after {
+box-sizing: inherit;
+}
+
+/* MEDIA CATCH ALL */
+img, embed, object, video {
+  max-width: 100%;
+}
+
+body {
+  background-color: $indigo500;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 1rem;
+}

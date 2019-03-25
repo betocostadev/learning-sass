@@ -1,3 +1,86 @@
+/* PARTIALS */
+@import '_variables';
+@import '_base';
+
+main {
+  margin: 1rem 10%;
+  section {
+    article {
+      p:nth-of-type(2) {
+        font-weight: $font-medium;
+      }
+      p:nth-of-type(3) {
+        font-weight: $font-strong;
+      }
+    }
+  }
+}
+
+h1 {
+  color: $secondaryFLight;
+}
+h2 {
+  color: $secondaryFDark;
+  border-bottom: 2px solid $secondaryFDark;
+  padding-bottom: 0.5rem;
+}
+
 header {
-  background-color: aquamarine;
+  margin: 2rem;
+}
+
+.nesting {
+  margin: 1rem;
+  padding: 1rem;
+  background-color: $indigo300;
+  h3 {
+    font-size: 1.5rem;
+    margin: 1rem;
+  }
+  .media {
+    margin-left: 1rem;
+    list-style-type: none;
+    img {
+      float: left;
+      margin: 1rem;
+      border: 2px solid $primaryFontC;
+    }
+    .item {
+      margin: 0 2rem 3rem 0;
+      border-top: 1px dotted $primaryFontC;
+      a {
+        text-decoration: none;
+        color: $primaryFontC;
+      }
+    }
+  }
+}
+
+/* MIXINS */
+// Height 75vh is a default value, will just work if not overwriting below.
+@mixin backImage($image, $height: 75vh) {
+  background: url($image);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  height: $height;
+}
+
+// Import the mixin - use include
+.placeOne {
+  @include backImage('../img/vancouver.webp');
+  padding: 1rem;
+  h3 {
+    font-size: 2rem;
+    font-weight: $font-medium;
+  }
+}
+
+.placeTwo {
+  @include backImage('../img/toronto.webp', 400px);
+  padding: 1rem;
+  h3 {
+    font-size: 2rem;
+    font-weight: $font-medium;
+  }
 }
