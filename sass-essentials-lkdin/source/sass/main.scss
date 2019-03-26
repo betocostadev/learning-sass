@@ -107,7 +107,7 @@ header {
   color: $clr-btn-text;
   // Referencing parent selectors:
   &:hover {
-    box-shadow: 1px 1px 6px 3px rgba(140,140,140,1);
+    box-shadow: 2px 2px 4px 2px rgba(140,140,140,1);
   }
 }
 
@@ -131,4 +131,53 @@ header {
 .btn-disabled {
   @extend %btn-small;
   background: $clr-btn-disabled;
+}
+
+// Image grid - mixins in the _mixins file
+.grid {
+  @include clearfix;
+  .item {
+    float: left;
+    @include imageGrid(3, 1%);
+  }
+  img {
+    display: block;
+    border-radius: 10px;
+    max-width: 100%;
+  }
+}
+
+// SASS Color modifying - A SASS feature. Look below.
+.mathSass {
+  clear: both;
+  margin-top: 3rem;
+  .table {
+    width: 100%;
+    caption {
+      font-size: 1.6rem;
+      padding-bottom: 0.6rem;
+    }
+    > thead, tbody {
+      padding: 0.5rem;
+      font-weight: 500;
+      > tr {
+        > th, td {
+          font-weight: 400;
+          padding: 0.5rem;
+          border-bottom: 1px solid $clr-lblue-500;
+        }
+      }
+    }
+    > thead > tr {
+      background: $primaryFontC;
+      color: $indigo900;
+      > th {
+        font-weight: $font-strong;
+      }
+      &:hover {
+        // The Sass complement feature to change the color. Inverts the color below
+        background: complement($color: #006fd6);
+      }
+    }
+  }
 }

@@ -53,7 +53,6 @@
       <article class="placeTwo">
         <h3>Toronto</h3>
       </article>
-
     </section>
 
     <section class="extends">
@@ -67,6 +66,77 @@
         <button class="btn-danger">Danger</button>
         <button class="btn-info">Info</button>
         <button class="btn-disabled">Disabled</button>
+      </article>
+    </section>
+
+    <section>
+      <article>
+        <h2>Working with Math operations</h2>
+        <p>SASS allow us to work with <strong>math operations</strong>, so we can define styles that have numeric parameters like width, height, margin, etc., and then we can apply them using math.</p>
+        <p>Check the example below:</p>
+        <p><code><pre>
+          @mixin imageGrid ($qty, $margin) {
+            width: ((100% - (($qty - 1) * $margin)) / $qty);
+
+          .grid {
+            @include clearfix;
+            .item {
+              float: left;
+              @include imageGrid(3, 1%);
+            }
+        </pre></code></p>
+        <h3>The <em>image grid</em> below was done using some math operations in SASS</h3>
+        <div class="grid">
+          <div class="item"><img src="http://placehold.it/500x500" alt="placeholder"></div>
+          <div class="item"><img src="http://placehold.it/500x500" alt="placeholder"></div>
+          <div class="item"><img src="http://placehold.it/500x500" alt="placeholder"></div>
+          <div class="item"><img src="http://placehold.it/500x500" alt="placeholder"></div>
+          <div class="item"><img src="http://placehold.it/500x500" alt="placeholder"></div>
+          <div class="item"><img src="http://placehold.it/500x500" alt="placeholder"></div>
+        </div>
+      </article>
+    </section>
+
+    <section class="mathSass">
+      <article>
+        <h2>Modfying colors using SASS</h2>
+        <table class="table">
+          <caption>Xiaomi Phones</caption>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Processor</th>
+              <th>Battery</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Mi A2</th>
+              <td>Snapdragon 660</td>
+              <td>3010mAh</td>
+              <td>R$ 1.099</td>
+            </tr>
+            <tr>
+              <th>Mi A2 Lite</th>
+              <td>Snapdragon 625</td>
+              <td>4000mAh</td>
+              <td>R$ 990</td>
+            </tr>
+            <tr>
+              <th>Mi 8</th>
+              <td>Snapdragon 845</td>
+              <td>3400mAh</td>
+              <td>R$ 2.400</td>
+            </tr>
+            <tr>
+              <th>Mi 8 Lite</th>
+              <td>Snapdragon 660</th>
+              <td>3350mAh</td>
+              <td>R$ 1.365</td>
+            </tr>
+          </tbody>
+        </table>
       </article>
     </section>
   </main>
