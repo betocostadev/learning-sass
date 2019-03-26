@@ -1,7 +1,11 @@
 /* PARTIALS */
 @import '_variables';
 @import '_base';
+@import '_mixins';
 
+/*! SASS Comment <- This one is marked as Must appear.  */
+// Single line comments like this never appear on the CSS after the convertion.
+// Even in the expanded mode!
 main {
   margin: 1rem 10%;
   section {
@@ -14,6 +18,10 @@ main {
       }
     }
   }
+}
+
+section {
+  margin: 2.5rem 1rem;
 }
 
 h1 {
@@ -42,7 +50,7 @@ header {
     list-style-type: none;
     img {
       float: left;
-      margin: 1rem;
+      margin: 2rem;
       border: 2px solid $primaryFontC;
     }
     .item {
@@ -52,20 +60,16 @@ header {
         text-decoration: none;
         color: $primaryFontC;
       }
+      // Use referencing:
+      &:last-of-type {
+        border-bottom: 1px dotted $primaryFontC;
+      }
+      @include clearfix;
     }
   }
 }
 
 /* MIXINS */
-// Height 75vh is a default value, will just work if not overwriting below.
-@mixin backImage($image, $height: 75vh) {
-  background: url($image);
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  height: $height;
-}
-
 // Import the mixin - use include
 .placeOne {
   @include backImage('../img/vancouver.webp');
@@ -83,4 +87,48 @@ header {
     font-size: 2rem;
     font-weight: $font-medium;
   }
+}
+
+/* EXTENDS: Use a base class for an extend for another Class */
+/* We will also use referencing. With &:hover */
+// Base class
+%btn-small {
+  display: inline-block;
+  margin: 1rem;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  user-select: none;
+  font-weight: $font-strong;
+  color: $clr-btn-text;
+  // Referencing parent selectors:
+  &:hover {
+    box-shadow: 1px 1px 6px 3px rgba(140,140,140,1);
+  }
+}
+
+// Extending - Check the HTML, there is no need for btn-small in all buttons
+.btn-small {
+  @extend %btn-small;
+  background: $clr-btn-default;
+}
+.btn-success {
+  @extend %btn-small;
+  background: $clr-btn-success;
+}
+.btn-danger {
+  @extend %btn-small;
+  background: $clr-btn-danger;
+}
+.btn-info {
+  @extend %btn-small;
+  background: $clr-btn-info;
+}
+.btn-disabled {
+  @extend %btn-small;
+  background: $clr-btn-disabled;
 }

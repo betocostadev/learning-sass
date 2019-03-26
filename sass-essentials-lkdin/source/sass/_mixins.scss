@@ -1,0 +1,15 @@
+// Height 75vh is a default value, will just work if not overwriting below.
+@mixin backImage($image, $height: 80vh) {
+  background: url($image);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  height: $height;
+}
+
+@mixin clearfix {
+  &:before,
+  &:after {
+    clear: both;
+  }
+}
