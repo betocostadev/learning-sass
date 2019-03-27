@@ -15,7 +15,14 @@ $clr-btn-danger: #f44336;
 $clr-btn-info: #1976d2;
 $clr-btn-disabled: #455a64;
 
+// Extra Font
+$font-amatic: 'Amatic SC', cursive;
+
 // Font-weight
 $font-medium: 500;
 $font-strong: 700;
 
+// Interface
+// The $roundness below is used to demonstrate a variable that is an Array in SASS.
+$roundness: 20px 0 20px 0;
+// It is used in the main file, for the "img" inside the grid - Line 145.

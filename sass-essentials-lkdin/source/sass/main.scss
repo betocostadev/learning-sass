@@ -35,6 +35,27 @@ h2 {
 
 header {
   margin: 2rem;
+  background-color: $indigo900;
+  h2 {
+    padding-bottom: 1rem;
+  }
+  nav {
+    h2 {
+      border: none;
+    }
+    display: flex;
+    ul {
+      list-style-type: none;
+    }
+    li {
+      display: inline;
+      margin: 1rem 2rem;
+    }
+    a {
+      text-decoration: none;
+      color: $primaryFontC;
+    }
+  }
 }
 
 .nesting {
@@ -142,8 +163,8 @@ header {
   }
   img {
     display: block;
-    border-radius: 10px;
-    max-width: 100%;
+    border-radius: nth($roundness, 1); // We could use only the variable, but this way, we are
+    max-width: 100%; // ... telling SASS, get only the first value of the variable $roundness.
   }
 }
 
@@ -151,15 +172,18 @@ header {
 .mathSass {
   clear: both;
   margin-top: 3rem;
+  padding-top: 2rem;
   .table {
     width: 100%;
+    font-family: $font-amatic;
     caption {
-      font-size: 1.6rem;
+      font-size: 2.6rem;
       padding-bottom: 0.6rem;
     }
     > thead, tbody {
       padding: 0.5rem;
-      font-weight: 500;
+      font-size: 1.5rem;
+      font-weight: $font-medium;
       > tr {
         > th, td {
           font-weight: 400;

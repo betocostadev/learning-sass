@@ -5,25 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700" rel="stylesheet">
   <link rel="stylesheet" href="dist/css/main.css">
   <title>SASS Learning Course</title>
 </head>
 <body>
   <header>
+    <nav>
+      <h2>SASS</h2>
+      <ul>
+        <li><a href="#variables">Variables</a></li>
+        <li><a href="#nest">Nesting</a></li>
+        <li><a href="#mixins">Mixins</a></li>
+        <li><a href="#extend">Extends</a></li>
+        <li><a href="#math">Math</a></li>
+        <li><a href="#colors">Colors</a></li>
+        <li><a href="#arrays">Arrays</a></li>
+      </ul>
+    </nav>
     <h1>SASS Learning - LinkedIn Course</h1>
     <h2>Instructor Ray Villalobos</h2>
   </header>
 
   <main>
     <section>
-      <article>
+      <article id="variables">
         <h3>Using variables to change the font-weight</h3>
         <p>Using the normal font-weight: 400</p>
         <p>Using the medium font-weight: 500</p>
         <p>Using the bold font-weight: 700</p>
       </article>
 
-      <article class="nesting">
+      <article class="nesting" id="nest">
         <h3>Using some nested elements</h3>
         <ol class="media">
           <li class="item">
@@ -44,7 +57,7 @@
       </article>
     </section>
 
-    <section class="jumbo">
+    <section class="jumbo" id="mixins">
       <h2>What about some Mixings to apply to those?</h2>
       <article class="placeOne">
         <h3>Vancouver</h3>
@@ -55,7 +68,7 @@
       </article>
     </section>
 
-    <section class="extends">
+    <section class="extends" id="extend">
       <article>
         <h2>Using extends</h2>
         <p>Extends allow us to have a base class that can be extended to other classes.</p>
@@ -69,7 +82,7 @@
       </article>
     </section>
 
-    <section>
+    <section id="math">
       <article>
         <h2>Working with Math operations</h2>
         <p>SASS allow us to work with <strong>math operations</strong>, so we can define styles that have numeric parameters like width, height, margin, etc., and then we can apply them using math.</p>
@@ -87,19 +100,19 @@
         </pre></code></p>
         <h3>The <em>image grid</em> below was done using some math operations in SASS</h3>
         <div class="grid">
-          <div class="item"><img src="http://placehold.it/500x500" alt="placeholder"></div>
-          <div class="item"><img src="http://placehold.it/500x500" alt="placeholder"></div>
-          <div class="item"><img src="http://placehold.it/500x500" alt="placeholder"></div>
-          <div class="item"><img src="http://placehold.it/500x500" alt="placeholder"></div>
-          <div class="item"><img src="http://placehold.it/500x500" alt="placeholder"></div>
-          <div class="item"><img src="http://placehold.it/500x500" alt="placeholder"></div>
+          <div class="item"><img src="http://placehold.it/300x300" alt="placeholder"></div>
+          <div class="item"><img src="http://placehold.it/300x300" alt="placeholder"></div>
+          <div class="item"><img src="http://placehold.it/300x300" alt="placeholder"></div>
+          <div class="item"><img src="http://placehold.it/300x300" alt="placeholder"></div>
+          <div class="item"><img src="http://placehold.it/300x300" alt="placeholder"></div>
+          <div class="item"><img src="http://placehold.it/300x300" alt="placeholder"></div>
         </div>
       </article>
     </section>
 
-    <section class="mathSass">
+    <section class="mathSass" id="colors">
       <article>
-        <h2>Modfying colors using SASS</h2>
+        <h2>Modifying colors using SASS</h2>
         <table class="table">
           <caption>Xiaomi Phones</caption>
           <thead>
@@ -137,6 +150,24 @@
             </tr>
           </tbody>
         </table>
+      </article>
+    </section>
+
+    <section id="arrays">
+      <article>
+        <h2>SASS Arrays - Creating List Elements</h2>
+        <p>Using SASS when we create something like a variable, we can also be creating a list. Take the example below:</p>
+        <p><code><pre>
+          $roundness: 20px 0 20px 0;
+        </pre></code></p>
+        <p>The "roundness" variable have more than one value, and thus it is in essence a list.</p>
+        <p>This can be used in different ways. See the example below:</p>
+        <p><code><pre>
+          $roundness: 20px 0 20px 0;
+          border-radius: nth($roundness, 1);
+        </pre></code></p>
+        <p>The code above tells SASS: - For the border-radius, apply only the first value of the list available in the "roundness" variable, which is 20px.</p>
+        <p>Also, <em>pay attention</em> that we are using 1 instead of 0. This is because SASS is <strong>not zero-based index</strong>.</p>
       </article>
     </section>
   </main>
