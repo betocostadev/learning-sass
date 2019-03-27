@@ -20,6 +20,11 @@ main {
   }
 }
 
+pre {
+  font-family: $font-code;
+  font-size: 1.5rem;
+}
+
 section {
   margin: 2.5rem 1rem;
 }
@@ -35,25 +40,45 @@ h2 {
 
 header {
   margin: 2rem;
-  background-color: $indigo900;
+  background-color: $indigo500;
   h2 {
     padding-bottom: 1rem;
   }
   nav {
+    display: flex;
+    background-color: $indigo900;
     h2 {
       border: none;
+      display: none; // Hiding for small screen, will bring it back with the MQuery below
+      @include break(1000px) {
+        display: block;
+      }
     }
-    display: flex;
     ul {
+      justify-content: flex-end;
       list-style-type: none;
     }
     li {
-      display: inline;
-      margin: 1rem 2rem;
+      float: left;
+      flex: 1;
+      margin: 0.3rem;
+      // Media query (On the mixin file)
+      @include break(600px) {
+        margin: 0.5rem;
+      }
+      @include break (1000px) {
+        margin: 0.8rem 1.2rem;
+      }
     }
     a {
+      font-size: 1.2rem;
+      letter-spacing: 0.1rem;
+      font-weight: $font-medium;
       text-decoration: none;
       color: $primaryFontC;
+      &:hover {
+        color: $secondaryFLight;
+      }
     }
   }
 }

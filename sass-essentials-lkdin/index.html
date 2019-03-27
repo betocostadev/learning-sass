@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
   <link rel="stylesheet" href="dist/css/main.css">
   <title>SASS Learning Course</title>
 </head>
@@ -21,6 +22,7 @@
         <li><a href="#math">Math</a></li>
         <li><a href="#colors">Colors</a></li>
         <li><a href="#arrays">Arrays</a></li>
+        <li><a href="#mquery">Media Queries</a></li>
       </ul>
     </nav>
     <h1>SASS Learning - LinkedIn Course</h1>
@@ -168,6 +170,36 @@
         </pre></code></p>
         <p>The code above tells SASS: - For the border-radius, apply only the first value of the list available in the "roundness" variable, which is 20px.</p>
         <p>Also, <em>pay attention</em> that we are using 1 instead of 0. This is because SASS is <strong>not zero-based index</strong>.</p>
+      </article>
+    </section>
+
+    <section id="mquery">
+      <article>
+        <h2>Using SASS to have more control over media queries</h2>
+        <p>When we create media queries, sometimes it can be hard to find exactly what we are looking for if the project gets big. Using SASS we can make this process simple, since we can apply the media query directly on each item. While this can make us spend time with more code, by applying it to every element we want to modify, we also have much better control.</p>
+        <p><strong>Example:</strong></p>
+        <p>Create the mixing for the media query:</p>
+        <p><code><pre>
+            @mixin break ($lenght) {
+              @media only screen and (max-width: $size) {
+                @content;
+              }
+            }
+        </pre></code></p>
+        <p>Then we apply the media query to the code element we want:</p>
+        <p><code><pre>
+            li {
+              float: left;
+              flex: 1;
+              margin: 0.3rem;
+              @include break(600px) {
+                margin: 0.5rem;
+              }
+              @include break (1000px) {
+                margin: 0.8rem 1.2rem;
+              }
+            }
+        </pre></code></p>
       </article>
     </section>
   </main>
