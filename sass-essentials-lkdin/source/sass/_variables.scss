@@ -27,3 +27,9 @@ $font-strong: 700;
 // The $roundness below is used to demonstrate a variable that is an Array in SASS.
 $roundness: 20px 0 20px 0;
 // It is used in the main file, for the "img" inside the grid - Line 145.
+
+// Screen Sizes for Media Queries
+$small-screen: 400px;
+$med-screen: 700px;
+$default-screen: 890px;
+$big-screen: 1180px;

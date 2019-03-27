@@ -23,6 +23,10 @@ main {
 pre {
   font-family: $font-code;
   font-size: 1.5rem;
+  overflow: auto;
+  @include break (400px, 800px) {
+    color: pink;
+  }
 }
 
 section {
@@ -32,6 +36,7 @@ section {
 h1 {
   color: $secondaryFLight;
 }
+
 h2 {
   color: $secondaryFDark;
   border-bottom: 2px solid $secondaryFDark;

@@ -23,6 +23,7 @@
         <li><a href="#colors">Colors</a></li>
         <li><a href="#arrays">Arrays</a></li>
         <li><a href="#mquery">Media Queries</a></li>
+        <li><a href="#conditionals">Conditions</a></li>
       </ul>
     </nav>
     <h1>SASS Learning - LinkedIn Course</h1>
@@ -90,15 +91,15 @@
         <p>SASS allow us to work with <strong>math operations</strong>, so we can define styles that have numeric parameters like width, height, margin, etc., and then we can apply them using math.</p>
         <p>Check the example below:</p>
         <p><code><pre>
-          @mixin imageGrid ($qty, $margin) {
-            width: ((100% - (($qty - 1) * $margin)) / $qty);
+      @mixin imageGrid ($qty, $margin) {
+        width: ((100% - (($qty - 1) * $margin)) / $qty);
 
-          .grid {
-            @include clearfix;
-            .item {
-              float: left;
-              @include imageGrid(3, 1%);
-            }
+      .grid {
+        @include clearfix;
+        .item {
+          float: left;
+          @include imageGrid(3, 1%);
+        }
         </pre></code></p>
         <h3>The <em>image grid</em> below was done using some math operations in SASS</h3>
         <div class="grid">
@@ -180,25 +181,78 @@
         <p><strong>Example:</strong></p>
         <p>Create the mixing for the media query:</p>
         <p><code><pre>
-            @mixin break ($lenght) {
-              @media only screen and (max-width: $size) {
-                @content;
-              }
-            }
+      @mixin break ($lenght) {
+        @media only screen and (max-width: $size) {
+          @content;
+        }
+      }
         </pre></code></p>
         <p>Then we apply the media query to the code element we want:</p>
         <p><code><pre>
-            li {
-              float: left;
-              flex: 1;
-              margin: 0.3rem;
-              @include break(600px) {
-                margin: 0.5rem;
-              }
-              @include break (1000px) {
-                margin: 0.8rem 1.2rem;
-              }
-            }
+      li {
+        float: left;
+        flex: 1;
+        margin: 0.3rem;
+        @include break(600px) {
+          margin: 0.5rem;
+        }
+        @include break (1000px) {
+          margin: 0.8rem 1.2rem;
+        }
+      }
+        </pre></code></p>
+      </article>
+    </section>
+
+    <section id="conditionals">
+      <article>
+        <h2>Conditional statements in SASS</h2>
+        <p>Like in many programming languages, SASS also let us use <em>conditional statements</em> for the compiler to interpret what you are looking for.</p>
+        <p>For example, we can use a mixin that takes any number of values. This is called and argument list. To use it we only need to add "..." to the end of a variable.</p>
+        <p>A good way to use it would be for media queries. Let's take that we need to use "min" and "max" width for our rules, then we could do like below:</p>
+        <p><code><pre>
+      @mixin break (&args...) {
+        @if length($args) == 1 {
+          @media (min-width: nth($args, 1)) {
+            @content;
+          }
+        }
+        @if length($args) == 2 {
+          @media (min-width: nth($args, 1)
+              and (max-width: nth($args, 2)) {
+            @content;
+          }
+        }
+      }
+        </pre></code></p>
+        <p>In the example below, "length" is a SASS property (Same as array.lenght), but our variable <em>args</em> tells SASS that we will have more than one argument, then we apply it using the if statement by telling SASS that, if we have more than <em>one arg</em> we will use the second <em>arg</em> also.</p>
+        <p>See how we could apply the example above to an element:</p>
+        <p><code><pre>
+      pre {
+        font-family: $font-code;
+        font-size: 1.5rem;
+        overflow: auto;
+        @include break (400px, 800px) {
+          color: pink;
+        }
+      }
+        </pre></code></p>
+
+        <p>Also, like in other programming languages, it's possible to use the @else statement to avoid more code if it's needed.</p>
+        <p>Example:</p>
+        <p><code><pre>
+      @mixin break (&args...) {
+        @if length($args) == 1 {
+          @media (min-width: nth($args, 1)) {
+            @content;
+          }
+        } @else {
+          @media (min-width: nth($args, 1)
+              and (max-width: nth($args, 2)) {
+            @content;
+          }
+        }
+      }
         </pre></code></p>
       </article>
     </section>
