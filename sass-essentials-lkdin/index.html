@@ -24,6 +24,8 @@
         <li><a href="#arrays">Arrays</a></li>
         <li><a href="#mquery">Media Queries</a></li>
         <li><a href="#conditionals">Conditions</a></li>
+        <li><a href="#loops">Loops</a></li>
+        <li><a href="#maps">Maps</a></li>
       </ul>
     </nav>
     <h1>SASS Learning - LinkedIn Course</h1>
@@ -103,12 +105,14 @@
         </pre></code></p>
         <h3>The <em>image grid</em> below was done using some math operations in SASS</h3>
         <div class="grid">
-          <div class="item"><img src="http://placehold.it/300x300" alt="placeholder"></div>
-          <div class="item"><img src="http://placehold.it/300x300" alt="placeholder"></div>
-          <div class="item"><img src="http://placehold.it/300x300" alt="placeholder"></div>
-          <div class="item"><img src="http://placehold.it/300x300" alt="placeholder"></div>
-          <div class="item"><img src="http://placehold.it/300x300" alt="placeholder"></div>
-          <div class="item"><img src="http://placehold.it/300x300" alt="placeholder"></div>
+          <div class="item"><img src="http://placehold.it/200x200" alt="placeholder"></div>
+          <div class="item"><img src="http://placehold.it/200x200" alt="placeholder"></div>
+          <div class="item"><img src="http://placehold.it/200x200" alt="placeholder"></div>
+          <div class="item"><img src="http://placehold.it/200x200" alt="placeholder"></div>
+          <div class="item"><img src="http://placehold.it/200x200" alt="placeholder"></div>
+          <div class="item"><img src="http://placehold.it/200x200" alt="placeholder"></div>
+          <div class="item"><img src="http://placehold.it/200x200" alt="placeholder"></div>
+          <div class="item"><img src="http://placehold.it/200x200" alt="placeholder"></div>
         </div>
       </article>
     </section>
@@ -257,11 +261,80 @@
       </article>
     </section>
 
-    <section>
+    <section id="loops">
       <article>
         <h2>Loops in SASS</h2>
         <h3>For loops</h3>
+        <p>The list below will be colored using a SASS for loop</p>
+        <ul>
+          <li class="licol1">Light yellow</li>
+          <li class="licol2">Dark yellow</li>
+          <li class="licol3">Red</li>
+          <li class="licol4">Light green</li>
+          <li class="licol5">Light Blue</li>
+        </ul>
+      </article>
+    </section>
 
+    <section>
+      <article>
+        <h2>Using for each loops in SASS</h2>
+        <p>Very useful when you don't know how many items there are in the list</p>
+        <p>Button styles generated using the 'for each' loop in SASS.</p>
+        <button class="btn-def">Default</button>
+        <button class="btn-hot">Hot</button>
+        <button class="btn-cool">Cool</button>
+        <p>Using the for each loop:</p>
+        <p><code><pre>
+      $color-btn-names: 'def', 'hot', 'cool'; // names based on the item class
+      $color-btn-values: $clr-btn-default, $clr-btn-danger, $clr-btn-info; // color variables
+      @each $name in $color-btn-names {
+        // We will need to create an Index to be used for the background-color
+        $ind: index($color-btn-names , $name); // $ind - our index. It's based on the names var.
+        .btn-#{$name} {
+          @extend %btn-small; // predefined style
+          background-color: nth($color-btn-values , $ind);
+        }
+      }
+      .btn-small {
+        @extend %btn-small;
+        background: $clr-btn-default;
+      }
+        </pre></code></p>
+      </article>
+    </section>
+
+    <section id="maps">
+      <article>
+        <h2>SASS Maps</h2>
+        <h3>Working with the map data type</h3>
+        <p>The buttons below were done using the associative arrays in SASS.</p>
+        <button class="botones-colpink">MC Pink</button>
+        <button class="botones-colpurple">MC Purple</button>
+        <button class="botones-colcyan">MC Cyan</button>
+        <button class="botones-colteal">MC Teal</button>
+        <p>Works like an associative array. SASS associative arrays work in a similar way as JavaScript objects using 'key, value' pairs. See the code below:</p>
+        <p>The associative array:</p>
+        <p><code><pre>
+      $color-button: (
+        colpink: $col-pink,
+        colpurple: $col-deep-purple,
+        colcyan: $col-cyan,
+        colteal: $col-teal
+      );
+        </pre></code></p>
+        <p>Now applying to items:</p>
+        <p><code><pre>
+      // $key will have the index - could be any name;
+      // $value will have the values - could be any name;
+      @each $key, $value in $color-button {
+        // We will NOT need to create an index, since we are using the array above.
+        .botones-#{$key} {
+          @extend %btn-small;
+          background-color: $value;
+        }
+      }
+        </pre></code></p>
       </article>
     </section>
   </main>

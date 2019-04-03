@@ -14,6 +14,7 @@ $clr-btn-success: #66bb6a;
 $clr-btn-danger: #f44336;
 $clr-btn-info: #1976d2;
 $clr-btn-disabled: #455a64;
+$colored-list: $secondaryFLight, $secondaryFDark, $clr-btn-danger, $clr-btn-success, $clr-btn-info;
 
 // Extra Font
 $font-amatic: 'Amatic SC', cursive;
@@ -33,3 +34,13 @@ $small-screen: 400px;
 $med-screen: 700px;
 $default-screen: 890px;
 $big-screen: 1180px;
+
+// For Each Buttons:
+$color-btn-names: 'def', 'hot', 'cool';
+$color-btn-values: $clr-btn-default, $clr-btn-danger, $clr-btn-info;
+
+// Associative array - Material colors:
+$col-pink: #e91e63;
+$col-deep-purple: #673ab7;
+$col-cyan: #00bcd4;
+$col-teal: #009688;

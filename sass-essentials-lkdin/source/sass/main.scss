@@ -44,7 +44,7 @@ h2 {
 }
 
 header {
-  margin: 2rem;
+  margin: 1rem;
   background-color: $indigo500;
   h2 {
     padding-bottom: 1rem;
@@ -62,21 +62,23 @@ header {
     ul {
       justify-content: flex-end;
       list-style-type: none;
+      padding: 0.1rem;
     }
     li {
       float: left;
       flex: 1;
-      margin: 0.3rem;
+      margin: 0.1rem;
+      padding: 0.1rem;
       // Media query (On the mixin file)
       @include break(600px) {
         margin: 0.5rem;
       }
       @include break (1000px) {
-        margin: 0.8rem 1.2rem;
+        margin: 0.3rem 1rem;
       }
     }
     a {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       letter-spacing: 0.1rem;
       font-weight: $font-medium;
       text-decoration: none;
@@ -189,7 +191,7 @@ header {
   @include clearfix;
   .item {
     float: left;
-    @include imageGrid(3, 1%);
+    @include imageGrid(4, 1%);
   }
   img {
     display: block;
@@ -233,5 +235,48 @@ header {
         background: complement($color: #006fd6);
       }
     }
+  }
+}
+
+// Colored list - Variable on _variables.scss
+// from 1 'through' lenght($colored-list) - 5: number of itens on the $colored-list variable.
+// Noticed that on the HTML file (around line 272) the list itens have values on their class names.
+@for $liItem from 1 through length($colored-list) {
+  .licol#{$liItem} {
+    color: nth($colored-list , $liItem);
+  }
+}
+
+// For Each Loop
+// Besides the index variable created below, the other variables are on:
+// line 39 - _variables.scss
+@each $name in $color-btn-names {
+  // We will need to create an Index to be used for the background-color
+  $ind: index($color-btn-names , $name);
+  .btn-#{$name} {
+    @extend %btn-small;
+    background-color: nth($color-btn-values , $ind);
+  }
+}
+.btn-small {
+  @extend %btn-small;
+  background: $clr-btn-default;
+}
+
+// SASS MAP - Use an associative array:
+$color-button: (
+  colpink: $col-pink,
+  colpurple: $col-deep-purple,
+  colcyan: $col-cyan,
+  colteal: $col-teal
+);
+
+// $key will have the index - could be any name;
+// $value will have the values - could be any name;
+@each $key, $value in $color-button {
+  // We will NOT need index, since we are using the array above.
+  .botones-#{$key} {
+    @extend %btn-small;
+    background-color: $value;
   }
 }
