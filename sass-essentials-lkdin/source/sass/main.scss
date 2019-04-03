@@ -3,7 +3,7 @@
 @import '_base';
 @import '_mixins';
 
-/*! SASS Comment <- This one is marked as Must appear.  */
+/*! SASS Comment <- This one is marked as Must appear. Even on the compressed file  */
 // Single line comments like this never appear on the CSS after the convertion.
 // Even in the expanded mode!
 main {
@@ -51,7 +51,7 @@ header {
   }
   nav {
     display: flex;
-    background-color: $indigo900;
+    background-color: darken($indigo900, 5%);
     h2 {
       border: none;
       display: none; // Hiding for small screen, will bring it back with the MQuery below

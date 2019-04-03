@@ -30,6 +30,9 @@
 
 // MEDIA QUERIES
 // Changed to use an array.
+// Using something like $args... means it will have any number of values.
+// Could also mix some more like break ($first, &second, $args...).
+// Could also use the else below instead of 'if' again.
 @mixin break ($args...) {
   @if length($args) == 1 {
     @media (min-width: nth($args, 1)) {
